@@ -26,7 +26,7 @@ class Recipe extends Model
 
     public function plan()
     {
-        return $this->belongsTo(plan::class, 'recipe_id');
+        return $this->belongsTo(Plan::class, 'recipe_id');
     }
 
     public function comments()

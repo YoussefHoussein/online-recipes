@@ -20,4 +20,6 @@ Route::post("delete-recipe", [RecipeController::class, "deleteRecipe"]);
 Route::get("get-recipes", [RecipeController::class, "getRecipes"]);
 Route::post("like-recipe", [RecipeController::class, "like"]);
 Route::post("comment", [RecipeController::class, "comment"]);
+Route::post("add-to-shopping-list", [RecipeController::class, "addToShoppingList"]);
+Route::post("plan", [RecipeController::class, "plan"]);
 

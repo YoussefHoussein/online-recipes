@@ -11,6 +11,8 @@ use App\Models\Image;
 use App\Models\User;
 use App\Models\Like;
 use App\Models\Comment;
+use App\Models\ShoppingList;
+use App\Models\Plan;
 
 use Auth;
 class RecipeController extends Controller
@@ -147,5 +149,46 @@ class RecipeController extends Controller
             'status' => 'success',
             'message' => $comment,
         ]);
+    }
+    public function addToShoppingList(Request $request){
+        $user = Auth::user();
+        $recipe = Recipe::find($request->recipe_id);
+
+        $shopping_list = new ShoppingList();
+        $shopping_list->user_id = $user->id;
+        $shopping_list->recipe_id = $recipe->id;
+        $shopping_list->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => "added succssefuly",
+        ]);
+    }
+    public function plan(Request $request){
+        $user = Auth::user();
+        $recipe = Recipe::find($request->recipe_id);
+        $date = $request->date;
+
+        $plans = $user->plans;
+
+        foreach($plans as $plan){
+            if($plan->date == $date){
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => "date already scheduled",
+                ]);
+            }
+        }
+
+        $plan = new Plan();
+        $plan->user_id = $user->id;
+        $plan->recipe_id = $recipe->id;
+        $plan->date= $date;
+        $plan->save();
+        return response()->json([
+            'status' => 'success',
+            'message' => "scheduled successfuly",
+        ]);
+        
     }
 }
