@@ -226,4 +226,23 @@ class RecipeController extends Controller
             'data' => "recipe not exists",
         ]);
     }
+    public function searchByIngredients(Request $request){
+        $ingredient_name = $request->ingredient;
+        $recipes = Recipe::all();
+        foreach($recipes as $recipe){
+            $ingredients = $recipe->ingredients;
+            foreach($ingredients as $ingredient){
+                if($ingredient->name == $ingredient_name){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => $recipe,
+                    ]);
+                }
+            }
+        }
+        return response()->json([
+            'status' => 'failed',
+            'data' => "recipe not exists",
+        ]);
+    }
 }

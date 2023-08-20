@@ -23,4 +23,5 @@ Route::post("comment", [RecipeController::class, "comment"]);
 Route::post("add-to-shopping-list", [RecipeController::class, "addToShoppingList"]);
 Route::post("plan", [RecipeController::class, "plan"]);
 Route::post("search-recipes", [RecipeController::class, "search"]);
+Route::post("search-recipes-ingredient", [RecipeController::class, "searchByIngredients"]);
 
