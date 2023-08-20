@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('cuisine');
-            $table->string('ingredients');
             $table->Integer('user_id');
             $table->timestamps();
         });

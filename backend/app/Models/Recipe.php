@@ -19,6 +19,11 @@ class Recipe extends Model
         return $this->hasMany(Image::class, 'recipe_id');
     }
 
+    public function ingredients()
+    {
+        return $this->hasMany(Ingredient::class, 'recipe_id');
+    }
+
     public function plan()
     {
         return $this->belongsTo(plan::class, 'recipe_id');
