@@ -150,6 +150,9 @@ class RecipeController extends Controller
             'message' => $comment,
         ]);
     }
+    public function share(Request $request){
+        
+    }
     public function addToShoppingList(Request $request){
         $user = Auth::user();
         $recipe = Recipe::find($request->recipe_id);
@@ -190,5 +193,37 @@ class RecipeController extends Controller
             'message' => "scheduled successfuly",
         ]);
         
+    }
+    public function search(Request $request){
+        $name = $request->name;
+        $cuisine = $request->cuisine;
+
+        $recipes = Recipe::all();
+
+        if($name){
+            foreach($recipes as $recipe){
+                if($recipe->name == $name){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => $recipe,
+                    ]);
+                }
+            }
+        }
+
+        if($cuisine){
+            foreach($recipes as $recipe){
+                if($recipe->cuisine == $cuisine){
+                    return response()->json([
+                        'status' => 'success',
+                        'data' => $recipe,
+                    ]);
+                }
+            }
+        }
+        return response()->json([
+            'status' => 'failed',
+            'data' => "recipe not exists",
+        ]);
     }
 }
