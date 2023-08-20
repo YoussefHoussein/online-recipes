@@ -10,6 +10,7 @@ use App\Models\Ingredient;
 use App\Models\Image;
 use App\Models\User;
 use App\Models\Like;
+use App\Models\Comment;
 
 use Auth;
 class RecipeController extends Controller
@@ -129,6 +130,22 @@ class RecipeController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => $message,
+        ]);
+    }
+    public function comment(Request $request){
+        $user = Auth::user();
+        $recipe = Recipe::find($request->recipe_id);
+        $content = $request->content;
+
+        $comment = new Comment();
+        $comment->user_id = $user->id;
+        $comment->recipe_id = $recipe->id;
+        $comment->content =$content;
+        $comment->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => $comment,
         ]);
     }
 }

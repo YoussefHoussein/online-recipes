@@ -27,15 +27,9 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('recipes_in_lists', function (Blueprint $table) {
-            $table->id();
-            $table->Integer('recipe_id');
-            $table->Integer('shopping_list_id');
-            $table->timestamps();
-        });
-
         Schema::create('Shopping_lists', function (Blueprint $table) {
             $table->id();
+            $table->Integer('recipe_id');
             $table->Integer('user_id');
             $table->timestamps();
         });
