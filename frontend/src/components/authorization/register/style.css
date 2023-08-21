@@ -1,0 +1,36 @@
+.register-container{
+    width: 70%;
+    height: 70vh;
+    overflow: hidden;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 24px 0 rgba(0, 0, 0, 0.19);
+}
+.register-left{
+    width: 40%;
+    height: 100%;
+    background-image: url('../../../assessts/registerImage.jpg');
+    overflow: hidden;
+    background-size: cover;
+}
+.register-right{
+    width: 60%;
+    height: 100%;
+    align-items: center;
+}
+.register-input-container{
+    width: 100%;
+    height: 50vh;
+}
+.register-input{
+    height: 10%;
+    background-color: rgba(255, 122, 28, 0.86);
+    border: 0;
+    border-radius: 10px;
+}
+.register-input-text{
+    width: 60%;
+    padding-left: 10px;
+}
+.register-button{
+    width: 30%;
+    color: white;
+}
