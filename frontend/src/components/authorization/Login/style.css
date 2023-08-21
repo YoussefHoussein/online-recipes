@@ -24,7 +24,7 @@
 }
 .login-input{
     height: 20%;
-    background-color: rgba(255, 122, 28, 0.86);
+    background-color: #7B8463;
     border: 0;
     border-radius: 10px;
     
@@ -44,6 +44,6 @@
 .register-login-button{
     background-color: transparent;
     border: 0;
-    color: rgba(255, 122, 28, 0.86);
+    color: #7B8463;
     cursor: pointer;
 }
