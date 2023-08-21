@@ -13,6 +13,7 @@ const Navbar = ({setNav}) => {
             <button className={selected == "Home" ? 'item-button selected' : 'item-button'} onClick={() => handleClick("Home")}>Home</button>
             <button className={selected == "Profile" ? 'item-button selected' : 'item-button'} onClick={() => handleClick("Profile")}>Profile</button>
             <button className={selected == "Shopping List" ? 'item-button selected' : 'item-button'} onClick={() => handleClick("Shopping List")}>Shopping List</button>
+            <button className={selected == "Calendar" ? 'item-button selected' : 'item-button'} onClick={() => handleClick("Calendar")}>Calendar</button>
         </div>
         <div className="search flex center">
             <input type="text" placeholder='Search' className='search-bar'/>
