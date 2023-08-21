@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from './navbar'
 import Home from './home'
-import Profile from './profile'
+import Create from './create'
 import ShoppingList from './shoppingList'
 import Calendar from './calendar'
 const Dashboard = () => {
@@ -14,7 +14,7 @@ const Dashboard = () => {
     <>
     <Navbar setNav={handleSelectItem}/>
     <div>
-      {nav == "Home" ? <Home /> : nav == "Profile" ? <Profile /> : nav == "Shopping List" ? <ShoppingList />: <Calendar />}
+      {nav == "Home" ? <Home /> : nav == "Create" ? <Create /> : nav == "Shopping List" ? <ShoppingList />: <Calendar />}
     </div>
     </>
     
