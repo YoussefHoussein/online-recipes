@@ -14,7 +14,7 @@ const Register = () => {
   }
   const location = useLocation();
   const navigate = useNavigate();
-  const openRegister = () => {
+  const openHome = () => {
     navigate("/home");
   }
   const checkData = () => {
@@ -35,7 +35,6 @@ const Register = () => {
   const handleRegister = async () => {
     try{
       const response = await axios.post('http://127.0.0.1:8000/api/register',data)
-      console.log(response.data)
       if(response.data.message === "User created successfully"){
         localStorage.setItem("token",response.data.authorisation.token)
         setData({
@@ -43,11 +42,10 @@ const Register = () => {
           email: "",
           password: "",
         })
-        openRegister()
+        openHome()
       }
     }
     catch(error){
-      console.log("error: "+error)
       setError("email or passowrd invalid")
       setData({
         name: "",
