@@ -29,7 +29,7 @@ const Login = () => {
         }
     }
     const openHome = () => {
-        navigate("/home");
+        navigate("/dashboard");
     }
     const handleLogin = async () => {
         try{

@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './navbar'
+import Home from './home'
+import Profile from './profile'
+import ShoppingList from './shoppingList'
+const Dashboard = () => {
+  const [nav , setNav] = useState("Home")
+  const handleSelectItem = (item) => {
+    setNav(item);
+  };
 
-const Home = () => {
   return (
-    <Navbar />
+    <>
+    <Navbar setNav={handleSelectItem}/>
+    <div>
+      {nav == "Home" ? <Home /> : nav == "Profile" ? <Profile /> : <ShoppingList />}
+    </div>
+    </>
+    
+    
   )
 }
 
-export default Home
+export default Dashboard

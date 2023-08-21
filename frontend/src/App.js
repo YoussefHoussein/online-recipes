@@ -4,14 +4,15 @@ import './styles/utilities.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './components/authorization/Login';
 import Register from './components/authorization/register';
-import Home from './components/home';
+import Dashboard from './components/home';
+import Home from './components/home/home';
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />}/>
         <Route path='/register' element={<Register />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

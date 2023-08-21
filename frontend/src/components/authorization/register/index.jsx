@@ -15,7 +15,7 @@ const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const openHome = () => {
-    navigate("/home");
+    navigate("/dashboard");
   }
   const checkData = () => {
     const name = data.name
